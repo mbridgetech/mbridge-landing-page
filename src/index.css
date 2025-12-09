@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-dark: #0B1121;
+  --color-brand-panel: #151e32;
+  --color-brand-teal: #2DD4BF;
+  --color-brand-teal-dim: rgba(45, 212, 191, 0.1);
+  --color-brand-white: #F8FAFC;
+  --color-brand-gray: #94A3B8;
+
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+/* GLOBAL STYLES */
+body {
+    background-color: var(--color-brand-dark);
+    color: var(--color-brand-white);
+    overflow-x: hidden;
+    font-family: var(--font-sans);
+}
+
+/* CUSTOM GRID BACKGROUND */
+.grid-bg {
+    background-size: 50px 50px;
+    background-image: 
+        linear-gradient(to right, rgba(45, 212, 191, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(45, 212, 191, 0.03) 1px, transparent 1px);
+    mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+    @apply fixed inset-0 pointer-events-none z-0;
+}
+
+/* GLASSMORPHISM UTILITY */
+.glass-panel {
+    background: rgba(21, 30, 50, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    @apply transition-all duration-300;
+}
+
+.glass-panel:hover {
+    border-color: rgba(45, 212, 191, 0.3);
+    box-shadow: 0 0 15px rgba(45, 212, 191, 0.1);
+}
+
+/* GLOW TEXT UTILITY */
+.text-glow {
+    text-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
+}
+
+/* CUSTOM SCROLLBAR */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-brand-dark); 
+}
+::-webkit-scrollbar-thumb {
+    background: #1e293b; 
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-brand-teal); 
+}
+
+/* Loading Spinner */
+.spinner {
+    border: 3px solid rgba(255,255,255,0.1);
+    border-left-color: var(--color-brand-teal);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
