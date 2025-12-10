@@ -1,0 +1,14 @@
+{
+    "mcpServers": {
+        "mbridge": {
+            "command": "./mcp-server/venv/bin/python",
+            "args": [
+                "./mcp-server/server.py"
+            ],
+            "env": {
+                "GEMINI_API_KEY": "${GEMINI_API_KEY}",
+                "GOOGLE_SHEET_URL": "${GOOGLE_SHEET_URL}"
+            }
+        }
+    }
+}
